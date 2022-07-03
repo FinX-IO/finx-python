@@ -2,7 +2,12 @@
 
 ## FinX Python SDK
 
-FinX Python SDK is an installable python package registered with PyPi.org and installable as follows:
+FinX Python SDK is an installable python package registered with PyPi.org and installable using _pip_. 
+
+PREREQUISITES: you must have the following packages installed on your machine (they are **not** included 
+in the FinX SDK):
+
+- asyncio
 
 #### Linux Install
 
