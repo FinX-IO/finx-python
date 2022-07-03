@@ -14,3 +14,7 @@ endpoints. In order to make use of the FinX Python SDK ___you must have a FinX A
 FinX Capital Markets LLC is a Software-as-a-Service company based in El Segundo, California, USA.
 
 For more information, please visit [https://finx.io](https://finx.io)
+
+## FinX Python SDK Documentation
+
+Please see the [docs](/docs) folder in this repository for SDK documentation.
