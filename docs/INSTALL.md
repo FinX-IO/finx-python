@@ -15,7 +15,8 @@ pip install finx-io
 #### Mac Install
 
 ```mac command line
-python3 -m pip install finx-io```
+python3 -m pip install finx-io
+```
 
 ##### beta release
 
