@@ -29,6 +29,8 @@ python3 -m pip install finx-io
 ### A FinX API Key is required to use the FinX Python SDK and FinX Webservice Endpoints
 
 > To obtain a FinX API Key, please contact info@finx.io
+> 
+> PLEASE NOTE: FinX API Keys rotate every 24 hours, so please program your system accordingly
 
 Your FinX API Key must be set as an environment variable FINX_API_KEY
 
