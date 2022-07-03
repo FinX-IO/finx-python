@@ -8,3 +8,9 @@ The FinX Python SDK is free software provided as a courtesy to customers of FinX
 
 The SDK connects to the FinX Capital Markets Platform (the "platform") which is a collection of for-fee services and 
 endpoints. In order to make use of the FinX Python SDK ___you must have a FinX API Key___ from FinX Capital Markets.
+
+## About FinX Capital Markets
+
+FinX Capital Markets LLC is a Software-as-a-Service company based in El Segundo, California, USA.
+
+For more information, please visit [https://finx.io](https://finx.io)
