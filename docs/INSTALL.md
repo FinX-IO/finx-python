@@ -23,3 +23,28 @@ pip install -i https://test.pypi.org/simple/ finx-io
 ```mac command line
 python3 -m pip install finx-io
 ```
+
+# FinX API Key
+
+### A FinX API Key is required to use the FinX Python SDK and FinX Webservice Endpoints
+
+> To obtain a FinX API Key, please contact info@finx.io
+
+Your FinX API Key must be set as an environment variable FINX_API_KEY.
+
+To set your FINX_API_KEY using bash:
+
+```bash
+export FINX_API_KEY='(your api key here)'
+
+# test it
+echo $FINX_API_KEY
+```
+
+```python
+import os
+os.environ['FINX_API_KEY'] = '(your api key here)'
+
+# test it
+os.getenv('FINX_API_KEY')
+```
