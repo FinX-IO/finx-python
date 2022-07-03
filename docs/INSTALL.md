@@ -30,9 +30,9 @@ python3 -m pip install finx-io
 
 > To obtain a FinX API Key, please contact info@finx.io
 
-Your FinX API Key must be set as an environment variable FINX_API_KEY.
+Your FinX API Key must be set as an environment variable FINX_API_KEY
 
-To set your FINX_API_KEY using bash:
+To set your FINX_API_KEY using _*bash*_:
 
 ```bash
 export FINX_API_KEY='(your api key here)'
@@ -40,6 +40,8 @@ export FINX_API_KEY='(your api key here)'
 # test it
 echo $FINX_API_KEY
 ```
+
+To set your FINX_API_KEY using _*python*_:
 
 ```python
 import os
