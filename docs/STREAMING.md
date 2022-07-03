@@ -1,5 +1,12 @@
 # FinX Python Streamer
 
+## WSS: Streaming
+
+#### The FinX Streaming service is a websocket server that can be used in 2 ways:
+
+1. STREAMS: Listen for messages on a streaming channel (live streaming)
+2. FUNCTIONS: Make function calls over a websocket connection (faster throughput and lower overhead)
+
 ## Endpoints
 
 > ##### WSS Production Base Endpoint: 
@@ -9,13 +16,6 @@
 > wss://beta.finx.io/
 
 ***
-
-## WSS: Streaming
-
-#### The FinX Streaming service is a websocket server that can be used in 2 ways:
-
-1. STREAMS: Listen for messages on a streaming channel (live streaming)
-2. FUNCTIONS: Make function calls over a websocket connection (faster throughput and lower overhead)
 
 ## STREAMS
 
@@ -59,7 +59,7 @@ __*EXAMPLE MESSAGE FROM URL*__
 
 ### Streaming Greeks
 
-wss://ws.finx.io/streaming/[API Key]/[pair]
+wss://ws.finx.io/streaming-greeks/[API Key]/[option]
 
 The Streaming Greeks emits a stream of messages that match characteristics of a derivative provided.
 
