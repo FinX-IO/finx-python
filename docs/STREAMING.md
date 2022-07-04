@@ -72,7 +72,7 @@ The Streaming Greeks emits a stream of messages that match characteristics of a 
 > for network-specific time series of ticks (i.e., BINANCE or COINBASE or FTX), use the
 > Greeks History function [ available in a future release ].
 
-#### HOW TO RECEIVE MESSAGES FROM THE STREAMING GREEKS SERVICE
+#### HOW TO RECEIVE MESSAGES FROM THE STREAMING GREEKS SERVICE (future release)
 
 1. Connect via wss to wss://[beta or ws].finx.io/streaming/greeks/[API Key]/[option] replacing the variables as 
 appropriate, where [option] is formatted as: [underlying_symbol+contract+expiry_year+expiry_month]
@@ -88,6 +88,8 @@ wss://beta.finx.io/streaming/greeks/myAPIKey/BTCN2202207
 __*EXAMPLE MESSAGE FROM URL*__
 
 ```json
-[TBD]
+{
+   "feature": "scheduled for future release"
+}
 ```
 
