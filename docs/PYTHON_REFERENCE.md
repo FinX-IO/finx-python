@@ -50,6 +50,7 @@ import os
 os.environ['FINX_API_KEY'] = ''
 
 tick_plant = TickPlant("dev")
+tick_plant.connect()
 tick_snap = tick_plant.tick_snap("BTC:USDC","2022-07-01","00:00")
 print(tick_snap)
 ```
@@ -66,6 +67,7 @@ import os
 os.environ['FINX_API_KEY'] = ''
 
 tick_plant = TickPlant("dev")
+tick_plant.connect()
 tick_history = tick_plant.tick_history("BTC:USDC","2022-06-01","00:00")
 print(tick_history)
 ```
