@@ -19,6 +19,8 @@
 
 ## STREAMS
 
+> There is a single endpoint for each stream with all parameters passed in the wss url string. 
+
 ### Streaming Ticks
 
 wss://ws.finx.io/streaming/[API Key]/[pair]
@@ -59,7 +61,9 @@ __*EXAMPLE MESSAGE FROM URL*__
 
 ### Streaming Greeks
 
-wss://ws.finx.io/streaming-greeks/[API Key]/[option]
+> Streaming Greeks is scheduled for a future release and is ___not___ available in FinX Python SDK 1.0.0
+
+wss://ws.finx.io/streaming/greeks/[API Key]/[option]
 
 The Streaming Greeks emits a stream of messages that match characteristics of a derivative provided.
 
@@ -70,12 +74,12 @@ The Streaming Greeks emits a stream of messages that match characteristics of a 
 
 #### HOW TO RECEIVE MESSAGES FROM THE STREAMING GREEKS SERVICE
 
-1. Connect via wss to wss://[beta or ws].finx.io/streaming-greeks/[API Key]/[option] replacing the variables as 
+1. Connect via wss to wss://[beta or ws].finx.io/streaming/greeks/[API Key]/[option] replacing the variables as 
 appropriate, where [option] is formatted as: [underlying_symbol+contract+expiry_year+expiry_month]
 
 __*EXAMPLE URL*__
 ```url
-wss://beta.finx.io/streaming-greeks/myAPIKey/BTCN2202207
+wss://beta.finx.io/streaming/greeks/myAPIKey/BTCN2202207
 ```
 
 2. Once connected, your client will receive messages emitted from the webservice. You must handle these messages in your
