@@ -5,6 +5,7 @@
 1. Tick Streamer
 2. Tick Snap
 3. Tick History
+4. Calculate Greeks
 
 ### Tick Streamer
 
@@ -71,3 +72,34 @@ tick_plant.connect()
 tick_history = tick_plant.tick_history("BTC:USDC","2022-06-01","00:00")
 print(tick_history)
 ```
+
+### Calculate Greeks
+
+#### How to Calculate Greeks for a Derivative
+
+```python
+#! python
+import finx
+import os
+from finx.client import FinXClient
+import pandas as pd
+import numpy as np
+pd.options.plotting.backend = "plotly"
+
+finx_api_key = os.getenv('FINX_API_KEY')
+finx_api_endpoint = 'https://hedgefunds.finx.io/api/'
+finx = FinXClient('socket', finx_api_key=finx_api_key, finx_api_endpoint=finx_api_endpoint, ssl=True)
+# s0, k, r, sigma, q, T, p, option_side, option_type
+# s0 = spot price
+# k = underlying price
+# r = risk free rate
+# sigma = volatility - if left blank then Implied Volatility will be calculated from option price
+# q = coupon rate of the financial instrument
+# T = days to strike date
+# p (price) = price of option
+# option_side = call or put
+# option_type = american or european
+result = finx.calculate_greeks(s0, k, r, sigma, q, days_left, price, 'call', 'european')
+print(result)
+```
+
