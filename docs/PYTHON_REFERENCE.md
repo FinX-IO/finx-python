@@ -6,6 +6,8 @@
 2. Tick Snap
 3. Tick History
 4. Calculate Greeks
+5. Implied Volatility Surface Generator
+6. Calculation Grid Function Reference
 
 ### Tick Streamer
 
@@ -103,3 +105,53 @@ result = finx.calculate_greeks(s0, k, r, sigma, q, days_left, price, 'call', 'eu
 print(result)
 ```
 
+
+
+### Implied Volatility Surface Generator
+
+Calculates an implied volatility surface for a given pair's options given a snapshot in time of observed IV quotes 
+for any range of strike prices and expirations.
+
+#### calibrate_vol_surface(params)
+
+##### calibrate_vol_surface: params
+
+```params
+{
+  "filename": string, 
+}
+```
+
+*filename* is the submitted existing IV or price observations. Files are submitted via submit_file(params) [0.0.94]
+
+```python
+#! python
+import finx
+import os
+from finx.client import FinXClient
+
+finx_api_key = os.getenv('FINX_API_KEY')
+finx_api_endpoint = 'https://hedgefunds.finx.io/'
+finx = FinXClient('socket', finx_api_key=finx_api_key, finx_api_endpoint=finx_api_endpoint, ssl=True)
+surface = finx.calibrate_vol_surface('appendix_b.csv')
+print(surface)
+```
+
+### Calculation Grid Function Reference
+
+Returns the functions available on the FinX Calculation Grid.
+
+#### list_api_functions()
+
+```python
+#! python
+import finx
+import os
+from finx.client import FinXClient
+
+finx_api_key = os.getenv('FINX_API_KEY')
+finx_api_endpoint = 'https://hedgefunds.finx.io/api/'
+finx = FinXClient('socket', finx_api_key=finx_api_key, finx_api_endpoint=finx_api_endpoint, ssl=True)
+functions = finx.list_api_functions()
+print(functions)
+```
