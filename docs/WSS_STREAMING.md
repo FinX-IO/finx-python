@@ -34,7 +34,7 @@ Streaming Contracts include risk measures and price information real-time for a 
 
 You may subscribe to a stream by submitting a message to the server.
 
-#### MESSAGE FORMAT FOR SUBSCRIBING TO STERAMING CONTRACTS
+#### MESSAGE FORMAT FOR SUBSCRIBING TO STREAMING CONTRACTS
 
 ```json
 {
