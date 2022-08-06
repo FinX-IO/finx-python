@@ -1,4 +1,4 @@
-# FinX Python Streamer
+# FinX Websocket Service
 
 ## WSS: Streaming
 
