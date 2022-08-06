@@ -23,6 +23,7 @@
 > which contains the inputs for that function. You must always include your APIKey in messages you submit to the websocket server. 
 
 wss://ws.finx.io/streaming/[API Key]
+
 wss://beta.finx.io/streaming/[API Key]
 
 ### Streaming Contracts
