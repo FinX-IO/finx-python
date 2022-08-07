@@ -5,7 +5,7 @@
 1. STREAMS: Listen for messages on a streaming channel (live streaming)
 2. FUNCTIONS: Make function calls over a websocket connection (faster throughput and lower overhead)
 
-## Endpoints
+## ENDPOINTS
 
 > ##### WSS Production Base Endpoint: 
 > wss://ws.finx.io/
@@ -15,49 +15,30 @@
 
 ## FINX WSS FUNCTIONS
 
-### Authenticate
+### Connect WebSocket Client
 
-wss://ws.finx.io/backend/[params]
+> There is a single endpoint used to call any streaming function. Once connected, send a message into the websocket connection
+> which contains the inputs for that function. You must always include your APIKey in messages you submit to the websocket server. 
 
-#### HOW TO RECEIVE MESSAGES FROM THE AUTHENTICATION SERVICE
+wss://ws.finx.io/streaming/[FinX APIKey]
 
-1. Connect via wss to wss://[beta or ws].finx.io/backend/[params] where params contains APIKey
+### Get 5-Minute Matrix (the '5M')
 
-__*EXAMPLE URL*__
-```url
-wss://beta.finx.io/backend/[params]
-```
+> The 5-minute matrix returns all contract prices for a base instrument. The contract prices returned are the set of 
+> all observed prices which are recorded on 5 minute intervals on the FinX platform.
+> 
+> Setting fiveMinuteDateTime to "latest" will return the latest 5 minute snap
 
-2. Once connected, your client will receive a message containing Authentication Response in a single json object emitted from the
-   webservice. You must handle this message in your client code.
+#### functionName: getFiveMinMatrix
 
-```json
-{"isAuth": true}
-```
-
-### Tick Snap
-
-wss://ws.finx.io/backend/[params]
-
-#### HOW TO RECEIVE MESSAGES FROM THE TICK SNAP SERVICE
-
-1. Connect via wss to wss://[beta or ws].finx.io/backend/[params] where params contains APIKey, pair, date, time
-
-__*EXAMPLE URL*__
-```url
-wss://beta.finx.io/backend/[params]
-```
-
-2. Once connected, your client will receive a message containing the tick snap in a single json object emitted from the
-   webservice. You must handle this message in your client code.
+#### MESSAGE FORMAT FOR 5-MINUTE MATRIX
 
 ```json
 {
-    "pair":"BTC:USD",
-    "date":"2022-06-15",
-    "time":"21:27:40.453Z",
-    "exchange":"COINBASE",
-    "price":"21865.010000000002"
+  "APIKey": {your finx api key},
+  "functionName": "getFiveMinMatrix",
+  "baseInstrument": {[BTC,ETH,SOL,USDC]},
+  "fiveMinuteDateTime": "2022-08-04T04:05" or "latest" {like YYYY-mm-dd`T`HH:{MM where MM is on the five minute interval like 00, 05, 10...}},
 }
 ```
 
@@ -75,21 +56,18 @@ In a future release, we will include the following parameters:
 - my_date is starting time (0.0.2 included)
 - my_end_date is ending window (future)
 
-wss://ws.finx.io/backend/[params]
+#### functionName: getFiveMinMatrix
 
-#### HOW TO RECEIVE MESSAGES FROM THE TICK HISTORY SERVICE
+#### MESSAGE FORMAT FOR 5-MINUTE MATRIX
 
-1. Connect via wss to wss://[beta or ws].finx.io/backend/[params] where params contains APIKey, pair, date, time
-
-__*EXAMPLE URL*__
-```url
-wss://beta.finx.io/backend/[params]
+```json
+{
+  "APIKey": {your finx api key},
+  "functionName": "getTickHistory",
+  "baseInstrument": {[BTC,ETH,SOL,USDC]},
+  "startDate": "2022-08-04T04:05" {like YYYY-mm-dd`T`HH:{MM where MM is on the five minute interval like 00, 05, 10...}},
+}
 ```
-
-2. Once connected, your client will receive a message containing the history in a single json object emitted from the 
-webservice. You must handle this message in your client code.
-
-__*EXAMPLE MESSAGE FROM URL*__
 
 ```json
 {

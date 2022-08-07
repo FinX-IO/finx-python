@@ -28,13 +28,33 @@ wss://beta.finx.io/streaming/[API Key]
 
 ### Streaming Contracts
 
+You may subscribe to a stream by submitting a message to the server.
+
+#### functionName: listDeribitContracts
+
+The Streaming Contracts service has a list of all contracts available.
+
+#### MESSAGE FORMAT FOR LIST DERIBIT CONTRACTS
+
+```json
+{
+  "APIKey": {your finx api key},
+  "functionName": "listDeribitContracts"
+}
+```
+
+##### RESPONSE
+
+```json
+["BTC-8AUG22-18000-C", "BTC-8AUG22-18000-P", "BTC-8AUG22-19000-C", "BTC-8AUG22-19000-P", "BTC-8AUG22-20000-C", "BTC-8AUG22-20000-P", "BTC-8AUG22-21000-C", "BTC-8AUG22-21000-P", ...]
+```
+
+
 #### functionName: getDeribitContractStream
 
 The Streaming Contracts service emits a stream of messages that match contract ticker data for the contract submitted (instrumentName). 
 
 Streaming Contracts include risk measures and price information real-time for a contract.
-
-You may subscribe to a stream by submitting a message to the server.
 
 #### MESSAGE FORMAT FOR SUBSCRIBING TO STREAMING CONTRACTS
 
