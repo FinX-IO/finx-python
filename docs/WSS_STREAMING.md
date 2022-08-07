@@ -122,3 +122,15 @@ EXAMPLE ONLY THIS IS NOT A COMPLETE LIST
   "pair": {format is like BTC:USDC}
 }
 ```
+
+### RESPONSE MESSAGE 
+
+```json
+{
+  "pair": "BTC:USDC",
+  "unixDate": 1659897295,
+  "UTCDate": "2022-08-07T18:34:55.000Z",
+  "exchange": "BINANCE",
+  "price": "23233.684999999998"
+}
+```
