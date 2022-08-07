@@ -19,16 +19,44 @@
 
 ## STREAMS
 
+### HOW TO CONNECT
 > There is a single endpoint used to call any streaming function. Once connected, send a message into the websocket connection
 > which contains the inputs for that function. You must always include your APIKey in messages you submit to the websocket server. 
 
-wss://ws.finx.io/streaming/[API Key]
+1. First, establish a websocket connection to one of the following endpoints:
 
-wss://beta.finx.io/streaming/[API Key]
+    - wss://ws.finx.io/streaming/[API Key]
 
-### Streaming Contracts
+    - wss://beta.finx.io/streaming/[API Key]
 
-You may subscribe to a stream by submitting a message to the server.
+2. Once connected, you may submit messages over that connection to the endpoints and receive responses.
+3. If you intend to keep your socket open and stream messages for longer than 5 minutes, you must submit
+ a "keepAlive" message to the server (an interval of 270 seconds will keep the channel open).
+
+### Streaming Data and Functions
+
+You may subscribe to a stream by submitting a message to the server after connecting over websocket.
+
+#### functionName: keepAlive
+
+The Streaming data service can be kept alive by submitting a keepAlive message every 4 minutes and 30 seconds. 
+
+#### MESSAGE FORMAT FOR KEEP ALIVE
+
+```json
+{
+  "APIKey": {your finx api key},
+  "functionName": "keepAlive"
+}
+```
+
+##### RESPONSE
+
+```json
+{
+  "keepAlive": true
+}
+```
 
 #### functionName: listDeribitContracts
 
