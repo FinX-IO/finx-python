@@ -25,9 +25,9 @@
 
 1. First, establish a websocket connection to one of the following endpoints:
 
-    - wss://ws.finx.io/streaming/[API Key]
+    - wss://ws.finx.io/streamer/[API Key]
 
-    - wss://beta.finx.io/streaming/[API Key]
+    - wss://beta.finx.io/streamer/[API Key]
 
 2. Once connected, you may submit messages over that connection to the endpoints and receive responses.
 3. If you intend to keep your socket open and stream messages for longer than 5 minutes, you must submit
