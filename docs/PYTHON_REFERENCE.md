@@ -5,9 +5,10 @@
 1. Tick Streamer
 2. Tick Snap
 3. Tick History
-4. Calculate Greeks
-5. Implied Volatility Surface Generator
-6. Calculation Grid Function Reference
+4. Timeslice of Contract Ticks
+5. Calculate Greeks
+6. Implied Volatility Surface Generator
+7. Calculation Grid Function Reference
 
 ### Tick Streamer
 
@@ -73,6 +74,18 @@ tick_plant = TickPlant("dev")
 tick_plant.connect()
 tick_history = tick_plant.tick_history("BTC:USDC","2022-06-01","00:00")
 print(tick_history)
+```
+
+### Timeslice of Contract Ticks
+
+### How to Fetch a Timeslice of Contract Ticks
+
+```python
+import pandas as pd
+import finx
+from finx.tick_client import TickPlant
+tp = TickPlant()
+df = tp.get_timeslice(api_key='my_api_key', timeslice_datestamp='1660825325', timeslice_width_seconds='10', underlying_symbol='BTC')
 ```
 
 ### Calculate Greeks
