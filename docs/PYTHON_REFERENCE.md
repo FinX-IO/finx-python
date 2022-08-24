@@ -6,9 +6,10 @@
 2. Tick Snap
 3. Tick History
 4. Timeslice of Contract Ticks
-5. Calculate Greeks
-6. Implied Volatility Surface Generator
-7. Calculation Grid Function Reference
+5. Time Series of Timeslices of Contract Ticks
+6. Calculate Greeks
+7. Implied Volatility Surface Generator
+8. Calculation Grid Function Reference
 
 ### Tick Streamer
 
@@ -83,9 +84,27 @@ print(tick_history)
 ```python
 import pandas as pd
 import finx
+import os
+os.environ['FINX_API_KEY'] = ''
 from finx.tick_client import TickPlant
 tp = TickPlant()
-df = tp.get_timeslice(api_key='my_api_key', timeslice_datestamp='1660825325', timeslice_width_seconds='10', underlying_symbol='BTC')
+finx_api_key = os.environ['FINX_API_KEY']
+df = tp.get_timeslice(api_key=finx_api_key, timeslice_datestamp='1660825325', timeslice_width_seconds='10', underlying_symbol='BTC')
+```
+
+### Time Series of Timeslices of Contract Ticks
+
+### How to Fetch a Time Series of Timeslices of Contract Ticks
+
+```python
+import pandas as pd
+import finx
+import os
+os.environ['FINX_API_KEY'] = ''
+from finx.tick_client import TickPlant
+tp = TickPlant()
+finx_api_key = os.environ['FINX_API_KEY']
+df = tp.get_timeslice_series(api_key=finx_api_key, series_start_datestamp='1660825325', series_end_datestamp='1660825925', series_step_seconds='60', timeslice_width_seconds='10', underlying_symbol='BTC')
 ```
 
 ### Calculate Greeks
